@@ -1,6 +1,6 @@
 # Rack::Indicium
 
-If a JWT is sent in the header, it will be decoded and available in the `jwt.payload` and `jwt.header` rack `env` variables.
+If a [JSON Web Token (JWT)](http://jwt.io/) is sent in the header, it will be decoded and available in the `jwt.payload` and `jwt.header` rack `env` variables.
 
 ## Installation
 
