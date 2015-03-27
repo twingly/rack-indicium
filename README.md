@@ -26,6 +26,23 @@ use Rack::Indicium, ENV.fetch("JWT_SECRET")
 run App
 ```
 
+Once the middleware is included you get access to `jwt.header` and `jwt.payload` in the `env` object.
+
+```Ruby
+# It will only be set if there's a valid JWT that is verified with the jwt secret
+payload = env.fetch("jwt.payload") { nil }
+```
+
+This could then be used for authorization
+
+```Ruby
+# Only allow requests from our clients
+def authorized?
+  payload = env.fetch("jwt.payload") { nil }
+  payload["aud"] == ENV.fetch("CLIENT_ID")
+end
+```
+
 If you need custom options to decode JWT, override the decoder:
 
 ```Ruby
