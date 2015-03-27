@@ -38,7 +38,7 @@ This could then be used for authorization
 ```Ruby
 # Only allow requests from our clients
 def authorized?
-  payload = env.fetch("jwt.payload") { nil }
+  payload = env.fetch("jwt.payload") { {} }
   payload["aud"] == ENV.fetch("CLIENT_ID")
 end
 ```
