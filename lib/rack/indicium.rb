@@ -5,7 +5,7 @@ module Rack
   class Indicium
 
     HTTP_AUTHORIZATION = "HTTP_AUTHORIZATION".freeze
-    BEARER_REGEXP = /Bearer /i
+    BEARER_REGEXP = /\ABearer /i
 
     def initialize(app, secret, decoder = nil)
       @app = app
