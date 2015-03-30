@@ -2,6 +2,7 @@ require 'rack/mock'
 
 $LOAD_PATH.unshift File.expand_path('../../lib', __FILE__)
 require 'rack/indicium'
+require 'rack/indicium/sentry'
 
 require_relative 'helpers'
 
