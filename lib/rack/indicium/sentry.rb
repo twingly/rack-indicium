@@ -14,13 +14,11 @@ module Rack
       end
 
       def call(env)
-        check_for_jwt(env)
+        check_for_jwt(env) if enabled?
         @app.call(env)
       end
 
       def check_for_jwt(env)
-        return unless enabled?
-
         context = {
           "jwt.header" => env["jwt.header"],
           "jwt.payload" => env["jwt.payload"],
