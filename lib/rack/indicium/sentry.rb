@@ -8,6 +8,8 @@ module Rack
 
         if defined?(Raven)
           @sentry_client = Raven
+        else
+          warn "%s: Raven not definied, can't send JWT headers to Sentry." % self.class.to_s
         end
       end
 
