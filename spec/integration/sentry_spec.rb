@@ -40,7 +40,7 @@ describe Rack::Indicium::Sentry, "env" do
   end
 
   context "When Raven is not defined" do
-    it "the middleware should be set" do
+    it "the middleware should be enabled" do
       expect(middleware.enabled?).to eq(false)
     end
   end
