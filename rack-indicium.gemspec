@@ -6,8 +6,8 @@ require 'rack/indicium/version'
 Gem::Specification.new do |spec|
   spec.name          = "rack-indicium"
   spec.version       = Rack::Indicium::VERSION
-  spec.authors       = ["Johan Eckerström"]
-  spec.email         = ["johan@duh.se"]
+  spec.authors       = ["Twingly AB"]
+  spec.email         = ["support@twingly.com"]
 
   spec.summary       = %q{Rack JWT helpers}
   spec.homepage      = "https://github.com/twingly/rack-indicium"
