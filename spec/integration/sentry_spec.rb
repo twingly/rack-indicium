@@ -48,9 +48,9 @@ describe Rack::Indicium::Sentry, "env" do
   context "when middleware is not enabled" do
     before do
       allow(middleware).to receive(:enabled?) { false }
-        jwt_context.each do |key, value|
-          env[key] = value
-        end
+      jwt_context.each do |key, value|
+        env[key] = value
+      end
       middleware.call(env)
     end
 
