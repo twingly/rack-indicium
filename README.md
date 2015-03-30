@@ -2,6 +2,8 @@
 
 If a [JSON Web Token (JWT)](http://jwt.io/) is sent in the header, it will be decoded and available in the `jwt.payload` and `jwt.header` rack `env` variables.
 
+Optional integration with [Sentry Raven] for jwt-context to exceptions.
+
 ## Installation
 
 Add this line to your application's Gemfile:
@@ -22,7 +24,9 @@ Or install it yourself as:
 
 ```Ruby
 require "rack/indicium"
+require "rack/indicium/sentry" # Optional to add jwt context to Sentry
 use Rack::Indicium, ENV.fetch("JWT_SECRET")
+use Rack::Indicium::Sentry # Add after use Raven::Rack
 run App
 ```
 
@@ -61,3 +65,5 @@ run App
 3. Commit your changes (`git commit -am 'Add some feature'`)
 4. Push to the branch (`git push origin my-new-feature`)
 5. Create a new Pull Request
+
+[Sentry Raven]: https://github.com/getsentry/raven-ruby
