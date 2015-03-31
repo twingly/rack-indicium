@@ -10,6 +10,7 @@ Gem::Specification.new do |spec|
   spec.email         = ["support@twingly.com"]
 
   spec.summary       = %q{Rack JWT helpers}
+  spec.description   = "Rack middleware to decode JWT and append it to the rack environment"
   spec.homepage      = "https://github.com/twingly/rack-indicium"
   spec.license       = "MIT"
 
