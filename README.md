@@ -69,3 +69,13 @@ run App
 5. Create a new Pull Request
 
 [Sentry Raven]: https://github.com/getsentry/raven-ruby
+
+## Release workflow
+
+Build the gem.
+
+    gem build rack-indicium.gemspec
+
+[Publish](http://guides.rubygems.org/publishing/) the gem.
+
+    gem push rack-indicium-x.y.z.gem
