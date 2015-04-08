@@ -1,6 +1,6 @@
 # Rack::Indicium
 
-[![Build Status](https://magnum.travis-ci.com/twingly/rack-indicium.svg?token=ADz8fWxRD3uP4KZPPZQS&branch=master)](https://magnum.travis-ci.com/twingly/rack-indicium)
+[![Build Status](https://travis-ci.org/twingly/rack-indicium.svg)](https://travis-ci.org/twingly/rack-indicium)
 
 If a [JSON Web Token (JWT)](http://jwt.io/) is sent in the header, it will be decoded and available in the `jwt.payload` and `jwt.header` rack `env` variables.
 
