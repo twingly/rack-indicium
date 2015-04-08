@@ -32,6 +32,7 @@ module Rack
       return unless jwt_payload
       return unless jwt_header
 
+      env["jwt.raw"]     = jwt
       env["jwt.payload"] = jwt_payload
       env["jwt.header"]  = jwt_header
     end

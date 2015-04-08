@@ -32,6 +32,7 @@ describe Rack::Indicium, "env" do
 
     it { is_expected.to include({ "jwt.header" => jwt_header }) }
     it { is_expected.to include({ "jwt.payload" => valid_jwt_payload }) }
+    it { is_expected.to include({ "jwt.raw" => jwt }) }
   end
 
   context "with a broken jwt" do
@@ -44,6 +45,7 @@ describe Rack::Indicium, "env" do
 
     it { is_expected.to_not include("jwt.header") }
     it { is_expected.to_not include("jwt.payload") }
+    it { is_expected.to_not include("jwt.raw") }
   end
 
   context "with an expired jwt" do
@@ -58,6 +60,7 @@ describe Rack::Indicium, "env" do
 
       it { is_expected.to_not include("jwt.header") }
       it { is_expected.to_not include("jwt.payload") }
+      it { is_expected.to_not include("jwt.raw") }
     end
 
     context "with a custom decoder " do
@@ -66,6 +69,7 @@ describe Rack::Indicium, "env" do
 
       it { is_expected.to include({ "jwt.header" => jwt_header }) }
       it { is_expected.to include({ "jwt.payload" => expired_jwt_payload }) }
+      it { is_expected.to include({ "jwt.raw" => jwt }) }
     end
   end
 end

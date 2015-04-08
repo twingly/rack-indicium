@@ -6,7 +6,7 @@ describe Rack::Indicium::Sentry, "env" do
   let(:middleware)  { Rack::Indicium::Sentry.new(application) }
   let(:header)      { {} }
   let(:env)         { Rack::MockRequest.env_for('/api', header) }
-  let(:jwt_context) { { "jwt.header" => jwt_header, "jwt.payload" => valid_jwt_payload } }
+  let(:jwt_context) { { "jwt.header" => jwt_header, "jwt.payload" => valid_jwt_payload, "jwt.raw" => valid_jwt("s3cr3t") } }
 
   subject do
     object_double("Raven", extra_context: true).as_stubbed_const
@@ -21,7 +21,7 @@ describe Rack::Indicium::Sentry, "env" do
       expect(middleware.enabled?).to eq(true)
     end
 
-    context "with jwt.header and jwt.payload" do
+    context "with jwt.raw, jwt.header and jwt.payload" do
       before do
         jwt_context.each do |key, value|
           env[key] = value

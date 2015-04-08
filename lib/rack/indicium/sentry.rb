@@ -20,6 +20,7 @@ module Rack
 
       def check_for_jwt(env)
         context = {
+          "jwt.raw" => env["jwt.raw"],
           "jwt.header" => env["jwt.header"],
           "jwt.payload" => env["jwt.payload"],
         }
